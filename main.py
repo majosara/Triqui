@@ -3,11 +3,13 @@ from turtle import*
 
 speed(11)
 
-turno = 9
+#El número de turnos durante todo el juego
+turno = 9 
 jugador1 = True
 jugador2 = False
 puntaje1 = 0
 puntaje2 = 0
+
 #Variables de graficas
 fontsize= 100
 scala=1.2
@@ -36,6 +38,10 @@ h1 = 0
 i1 = 0
 
 def getPos(x,y):
+    """ La funcion recibe las coordenadas x,y
+    Comprueba el turno del jugador y llama a la función dibujarX o dibujarO dependiendo del jugador de turno
+    En caso de haber jugado todos los turnos, se reinicia el juego.
+    """
     global turno
     if turno % 2 == 1 and jugador1 == True and jugador2 == False:
         dibujarX(x,y)
@@ -48,6 +54,9 @@ def getPos(x,y):
         main()
 
 def main():
+    """
+    la función reincia el juego, a excepcion del puntaje sumado hasta el momento, en el caso de empate o de haber ganado
+    """
     global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1
     graficas.graf_tricky(cuadrante)
     puntajes()
@@ -58,8 +67,10 @@ def main():
     jugador2 = False
     mainloop()
     
-    
 def puntajes():
+    """
+    La función pinta en pantalla el tablero de puntaje
+    """
     global puntaje1, puntaje2
     goto(-150,-100)
     pendown()
@@ -70,6 +81,10 @@ def puntajes():
     write("player 2= " + str(puntaje2), font=('Arial',30,'normal'))
 
 def dibujarX(x,y):
+    """
+    La función recibe las coordenadas x,y 
+    Comprueba el cuadrante en el que el jugador hizo click, escribe la X y cambia de turno
+    """
     global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1, cuadrante
     pencolor("violet")
     if x > 0 and x < cuadrante:
@@ -138,36 +153,12 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-
-    if e == 1:
-        if a == 1 and i == 1:
-            puntaje1 += 1
-            turno = 0
-        elif b == 1 and h == 1:
-            puntaje1 += 1
-            turno = 0
-        elif c == 1 and g == 1:
-            puntaje1 += 1
-            turno = 0
-        elif d == 1 and f == 1:
-            puntaje1 += 1
-            turno = 0
-    if g == 1:
-        if a == 1 and d == 1:
-            puntaje1 += 1
-            turno = 0
-        elif h == 1 and i == 1:
-            puntaje1 += 1
-            turno = 0
-    if c == 1:
-        if b == 1 and a == 1:
-            puntaje1 += 1
-            turno = 0
-        elif f == 1 and i == 1:
-            puntaje1 += 1
-            turno = 0
-
+            
 def dibujarO(x,y):
+    """
+    La función recibe las coordenadas x,y 
+    Comprueba el cuadrante en el que el jugador hizo click, escribe la X y cambia de turno
+    """
     global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1, cuadrante
     pencolor("green")
     if x > 0 and x < cuadrante:
@@ -237,6 +228,38 @@ def dibujarO(x,y):
             jugador1 = True
             turno -= 1
 
+def ganador():
+    """
+    La funcion compara las casillas adyacentes y sus valores en todas las posibles formas de ganar para ambos jugadores
+    """
+    global a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1, puntaje1, puntaje2
+    if e == 1:
+        if a == 1 and i == 1:
+            puntaje1 += 1
+            turno = 0
+        elif b == 1 and h == 1:
+            puntaje1 += 1
+            turno = 0
+        elif c == 1 and g == 1:
+            puntaje1 += 1
+            turno = 0
+        elif d == 1 and f == 1:
+            puntaje1 += 1
+            turno = 0
+    if g == 1:
+        if a == 1 and d == 1:
+            puntaje1 += 1
+            turno = 0
+        elif h == 1 and i == 1:
+            puntaje1 += 1
+            turno = 0
+    if c == 1:
+        if b == 1 and a == 1:
+            puntaje1 += 1
+            turno = 0
+        elif f == 1 and i == 1:
+            puntaje1 += 1
+            turno = 0
     if e1 == 1:
         if a1 == 1 and i1 == 1:
             puntaje2 += 1
@@ -264,5 +287,6 @@ def dibujarO(x,y):
         elif f1 == 1 and i1 == 1:
             puntaje2 += 1
             turno = 0
+            
 
 main()
