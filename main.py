@@ -158,9 +158,7 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
-        elif y > cuadrante and y < 2*cuadrante and f == 0 and f1 == 0:
+        if y > cuadrante and y < 2*cuadrante and f == 0 and f1 == 0:
             penup()
             goto (cuadrante+cuadrante+cuadrante/2, cuadrante - 15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
