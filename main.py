@@ -95,9 +95,7 @@ def dibujarX(x,y):
             a = 1
             jugador1 = False
             jugador2 = True
-            turno -= 1
-        else:
-            print("elija otra casilla")
+            turno -=1
         if y > cuadrante and y < 2*cuadrante and d == 0 and d1 == 0:
             penup()
             goto (cuadrante/2, cuadrante - 15)
@@ -106,8 +104,6 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > 2*cuadrante and y < 3*cuadrante and g == 0 and g1 == 0:
             penup()
             goto (cuadrante/2, 2 * cuadrante - 15)
@@ -116,8 +112,6 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
     elif x > cuadrante and x < 2*cuadrante:
         if y > 0 and y < cuadrante and b == 0 and b1 == 0:
             penup()
@@ -127,8 +121,6 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > cuadrante and y < 2*cuadrante and e == 0 and e1 == 0:
             penup()
             goto (cuadrante+cuadrante/2, cuadrante - 15)
@@ -137,8 +129,6 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > 2*cuadrante and y < 3*cuadrante and h == 0 and h1 == 0:
             penup()
             goto (cuadrante+cuadrante/2, 2 * cuadrante - 15)
@@ -147,8 +137,6 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
     elif x > 2 * cuadrante and x < 3 * cuadrante:
         if y > 0 and y < cuadrante and c == 0 and c1 == 0:
             penup()
@@ -166,8 +154,6 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > 2*cuadrante and y < 3*cuadrante and i == 0 and i1 == 0:
             penup()
             goto (cuadrante+cuadrante+cuadrante/2, 2 * cuadrante - 15)
@@ -176,8 +162,6 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
             
 def dibujarO(x,y):
     """
@@ -195,8 +179,6 @@ def dibujarO(x,y):
             jugador2 = False
             jugador1 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > cuadrante and y < 2*cuadrante and d == 0 and d1 == 0:
             penup()
             goto (cuadrante/2, cuadrante - 15)
@@ -205,8 +187,6 @@ def dibujarO(x,y):
             jugador2 = False
             jugador1 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > 2*cuadrante and y < 3*cuadrante and g == 0 and g1 == 0:
             penup()
             goto (cuadrante/2, 2 * cuadrante - 15)
@@ -215,8 +195,6 @@ def dibujarO(x,y):
             jugador2 = False
             jugador1 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
     elif x > cuadrante and x < 2 * cuadrante:
         if y > 0 and y < cuadrante and b == 0 and b1 == 0:
             penup()
@@ -226,8 +204,6 @@ def dibujarO(x,y):
             jugador2 = False
             jugador1 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > cuadrante and y < 2*cuadrante and e == 0 and e1 == 0:
             penup()
             goto (cuadrante+cuadrante/2, cuadrante - 15)
@@ -236,8 +212,6 @@ def dibujarO(x,y):
             jugador2 = False
             jugador1 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > 2*cuadrante and y < 3*cuadrante and h == 0 and h1 == 0:
             penup()
             goto (cuadrante+cuadrante/2, 2 * cuadrante - 15)
@@ -246,8 +220,6 @@ def dibujarO(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
     elif x > 2 * cuadrante and x < 3 * cuadrante:
         if y > 0 and y < cuadrante and c == 0 and c1 == 0:
             penup()
@@ -256,9 +228,7 @@ def dibujarO(x,y):
             c1 = 1
             jugador2 = False
             jugador1 = True
-            turno -= 
-        else:
-            print("elija otra casilla")
+            turno -= 1
         if y > cuadrante and y < 2*cuadrante and f == 0 and f1 == 0:
             penup()
             goto (cuadrante+cuadrante+cuadrante/2, cuadrante - 15)
@@ -267,8 +237,6 @@ def dibujarO(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
         if y > 2*cuadrante and y < 3*cuadrante and i == 0 and i1 == 0:
             penup()
             goto (cuadrante+cuadrante+cuadrante/2, 2 * cuadrante - 15)
@@ -277,8 +245,6 @@ def dibujarO(x,y):
             jugador2 = False
             jugador1 = True
             turno -= 1
-        else:
-            print("elija otra casilla")
 
 def ganador():
     """
