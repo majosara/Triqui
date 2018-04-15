@@ -1,17 +1,20 @@
 import graficas
 from turtle import*
+##Maria Jose Salazar Ramirez
 
 speed(11)
 
 #El número de turnos durante todo el juego
-turno = 9 
+turno = 9
+
+#variables para los jugadores
 jugador1 = True
 jugador2 = False
 puntaje1 = 0
 puntaje2 = 0
 
 #Variables de graficas
-fontsize= 100
+fontsize= int(input("ingrese el tamano de la letra"))
 scala=1.2
 cuadrante=fontsize*1.2
 
@@ -26,16 +29,6 @@ g = 0
 h = 0
 i = 0
 
-#casillas jugador 2
-a1 = 0
-b1 = 0
-c1 = 0
-d1 = 0
-e1 = 0
-f1 = 0
-g1 = 0
-h1 = 0
-i1 = 0
 
 def getPos(x,y):
     """ La funcion recibe las coordenadas x,y
@@ -61,7 +54,7 @@ def main():
     graficas.graf_tricky(cuadrante)
     puntajes()
     onscreenclick(getPos)
-    a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1 = (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+    a, b, c, d, e, f, g, h, i,  = (0,0,0,0,0,0,0,0,0)
     turno = 9
     jugador1 = True
     jugador2 = False
@@ -88,7 +81,7 @@ def dibujarX(x,y):
     global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1, cuadrante
     pencolor("violet")
     if x > 0 and x < cuadrante:
-        if y > 0 and y < cuadrante and a == 0 and a1 == 0:
+        if y > 0 and y < cuadrante and a == 0:
             penup()
             goto(cuadrante/2, 0-15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -96,7 +89,7 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -=1
-        if y > cuadrante and y < 2*cuadrante and d == 0 and d1 == 0:
+        if y > cuadrante and y < 2*cuadrante and d == 0:
             penup()
             goto (cuadrante/2, cuadrante - 15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -104,7 +97,7 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        if y > 2*cuadrante and y < 3*cuadrante and g == 0 and g1 == 0:
+        if y > 2*cuadrante and y < 3*cuadrante and g == 0:
             penup()
             goto (cuadrante/2, 2 * cuadrante - 15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -113,7 +106,7 @@ def dibujarX(x,y):
             jugador2 = True
             turno -= 1
     elif x > cuadrante and x < 2*cuadrante:
-        if y > 0 and y < cuadrante and b == 0 and b1 == 0:
+        if y > 0 and y < cuadrante and b == 0:
             penup()
             goto(cuadrante+cuadrante/2, 0-15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -121,7 +114,7 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        if y > cuadrante and y < 2*cuadrante and e == 0 and e1 == 0:
+        if y > cuadrante and y < 2*cuadrante and e == 0:
             penup()
             goto (cuadrante+cuadrante/2, cuadrante - 15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -129,7 +122,7 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        if y > 2*cuadrante and y < 3*cuadrante and h == 0 and h1 == 0:
+        if y > 2*cuadrante and y < 3*cuadrante and h == 0:
             penup()
             goto (cuadrante+cuadrante/2, 2 * cuadrante - 15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -138,7 +131,7 @@ def dibujarX(x,y):
             jugador2 = True
             turno -= 1
     elif x > 2 * cuadrante and x < 3 * cuadrante:
-        if y > 0 and y < cuadrante and c == 0 and c1 == 0:
+        if y > 0 and y < cuadrante and c == 0:
             penup()
             goto(cuadrante+cuadrante+cuadrante/2, -15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -146,7 +139,7 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        if y > cuadrante and y < 2*cuadrante and f == 0 and f1 == 0:
+        if y > cuadrante and y < 2*cuadrante and f == 0:
             penup()
             goto (cuadrante+cuadrante+cuadrante/2, cuadrante - 15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -154,7 +147,7 @@ def dibujarX(x,y):
             jugador1 = False
             jugador2 = True
             turno -= 1
-        if y > 2*cuadrante and y < 3*cuadrante and i == 0 and i1 == 0:
+        if y > 2*cuadrante and y < 3*cuadrante and i == 0:
             penup()
             goto (cuadrante+cuadrante+cuadrante/2, 2 * cuadrante - 15)
             write('X', align = 'center', font= ('Arial', fontsize, 'normal'))
@@ -171,77 +164,77 @@ def dibujarO(x,y):
     global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1, cuadrante
     pencolor("green")
     if x > 0 and x < cuadrante:
-        if y > 0 and y < cuadrante and a == 0 and a1 == 0:
+        if y > 0 and y < cuadrante and a == 0:
             penup()
             goto(cuadrante/2, 0-15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            a1 = 1
+            a = 11
             jugador2 = False
             jugador1 = True
             turno -= 1
-        if y > cuadrante and y < 2*cuadrante and d == 0 and d1 == 0:
+        if y > cuadrante and y < 2*cuadrante and d == 0:
             penup()
             goto (cuadrante/2, cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            d1 = 1
+            d = 11
             jugador2 = False
             jugador1 = True
             turno -= 1
-        if y > 2*cuadrante and y < 3*cuadrante and g == 0 and g1 == 0:
+        if y > 2*cuadrante and y < 3*cuadrante and g == 0:
             penup()
             goto (cuadrante/2, 2 * cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            g1 = 1
+            g = 11
             jugador2 = False
             jugador1 = True
             turno -= 1
     elif x > cuadrante and x < 2 * cuadrante:
-        if y > 0 and y < cuadrante and b == 0 and b1 == 0:
+        if y > 0 and y < cuadrante and b == 0:
             penup()
             goto(cuadrante+cuadrante/2, -15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            b1 = 1
+            b = 11
             jugador2 = False
             jugador1 = True
             turno -= 1
-        if y > cuadrante and y < 2*cuadrante and e == 0 and e1 == 0:
+        if y > cuadrante and y < 2*cuadrante and e == 0:
             penup()
             goto (cuadrante+cuadrante/2, cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            e1 = 1
+            e = 11
             jugador2 = False
             jugador1 = True
             turno -= 1
-        if y > 2*cuadrante and y < 3*cuadrante and h == 0 and h1 == 0:
+        if y > 2*cuadrante and y < 3*cuadrante and h == 0:
             penup()
             goto (cuadrante+cuadrante/2, 2 * cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            h1 = 1
+            h = 11
             jugador1 = False
             jugador2 = True
             turno -= 1
     elif x > 2 * cuadrante and x < 3 * cuadrante:
-        if y > 0 and y < cuadrante and c == 0 and c1 == 0:
+        if y > 0 and y < cuadrante and c == 0:
             penup()
             goto(cuadrante+cuadrante+cuadrante/2, -15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            c1 = 1
+            c = 11
             jugador2 = False
             jugador1 = True
             turno -= 1
-        if y > cuadrante and y < 2*cuadrante and f == 0 and f1 == 0:
+        if y > cuadrante and y < 2*cuadrante and f == 0:
             penup()
             goto (cuadrante+cuadrante+cuadrante/2, cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            f1 = 1
+            f = 11
             jugador1 = False
             jugador2 = True
             turno -= 1
-        if y > 2*cuadrante and y < 3*cuadrante and i == 0 and i1 == 0:
+        if y > 2*cuadrante and y < 3*cuadrante and i == 0:
             penup()
             goto (cuadrante+cuadrante+cuadrante/2, 2 * cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
-            i1 = 1
+            i = 11
             jugador2 = False
             jugador1 = True
             turno -= 1
@@ -278,33 +271,32 @@ def ganador():
         elif f == 1 and i == 1:
             puntaje1 += 1
             turno = 0
-    if e1 == 1:
-        if a1 == 1 and i1 == 1:
+    if e == 11:
+        if a == 11 and i == 11:
             puntaje2 += 1
             turno = 0
-        elif b1 == 1 and h1 == 1:
+        elif b == 11 and h == 11:
             puntaje2 += 1
             turno = 0
-        elif c1 == 1 and g1 == 1:
+        elif c == 11 and g == 11:
             puntaje2 += 1
             turno = 0
-        elif d1 == 1 and f1 == 1:
+        elif d == 11 and f == 11:
             puntaje2 += 1
             turno = 0
-    if g1 == 1:
-        if a1 == 1 and d1 == 1:
+    if g == 11:
+        if a == 11 and d == 11:
             puntaje2 += 1
             turno = 0
-        elif h1 == 1 and i1 == 1:
+        elif h == 11 and i == 11:
             puntaje2 += 1
             turno = 0
     if c1 == 1:
-        if b1 == 1 and a1 == 1:
+        if b == 11 and a == 11:
             puntaje2 += 1
             turno = 0
-        elif f1 == 1 and i1 == 1:
+        elif f == 11 and i == 11:
             puntaje2 += 1
             turno = 0
             
-
 main()

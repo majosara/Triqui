@@ -1,7 +1,6 @@
 from turtle import*
-fontsize= 100
 scala=1.2
-cuadrante=fontsize*1.2
+cuadrante=fontsize*scala
 def graf_tricky(cuadrante):
     speed(11)
     penup()
