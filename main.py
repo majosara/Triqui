@@ -29,6 +29,7 @@ g = 0
 h = 0
 i = 0
 
+
 def getPos(x,y):
     """ La funcion recibe las coordenadas x,y
     Comprueba el turno del jugador y llama a la función dibujarX o dibujarO dependiendo del jugador de turno
@@ -49,7 +50,7 @@ def main():
     """
     la función reincia el juego, a excepcion del puntaje sumado hasta el momento, en el caso de empate o de haber ganado
     """
-    global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i
+    global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1
     graficas.graf_tricky(cuadrante)
     puntajes()
     onscreenclick(getPos)
@@ -77,7 +78,7 @@ def dibujarX(x,y):
     La función recibe las coordenadas x,y 
     Comprueba el cuadrante en el que el jugador hizo click, escribe la X y cambia de turno
     """
-    global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i, cuadrante
+    global turno, jugador1, jugador2, puntaje1, puntaje2, a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1, cuadrante
     pencolor("violet")
     if x > 0 and x < cuadrante:
         if y > 0 and y < cuadrante and a == 0:
@@ -181,7 +182,7 @@ def dibujarO(x,y):
             turno -= 1
         if y > 2*cuadrante and y < 3*cuadrante and g == 0:
             penup()
-            goto (cuadrante/2, (cuadrante + cuadrante) - 15)
+            goto (cuadrante/2, 2 * cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
             g = 11
             jugador2 = False
@@ -190,7 +191,7 @@ def dibujarO(x,y):
     elif x > cuadrante and x < 2 * cuadrante:
         if y > 0 and y < cuadrante and b == 0:
             penup()
-            goto((cuadrante+cuadrante)/2, 0 - 15)
+            goto(cuadrante+cuadrante/2, -15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
             b = 11
             jugador2 = False
@@ -198,7 +199,7 @@ def dibujarO(x,y):
             turno -= 1
         if y > cuadrante and y < 2*cuadrante and e == 0:
             penup()
-            goto ((cuadrante+cuadrante)/2, cuadrante - 15)
+            goto (cuadrante+cuadrante/2, cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
             e = 11
             jugador2 = False
@@ -206,7 +207,7 @@ def dibujarO(x,y):
             turno -= 1
         if y > 2*cuadrante and y < 3*cuadrante and h == 0:
             penup()
-            goto ((cuadrante+cuadrante)/2, cuadrante + cuadrante - 15)
+            goto (cuadrante+cuadrante/2, 2 * cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
             h = 11
             jugador1 = False
@@ -215,7 +216,7 @@ def dibujarO(x,y):
     elif x > 2 * cuadrante and x < 3 * cuadrante:
         if y > 0 and y < cuadrante and c == 0:
             penup()
-            goto((cuadrante+cuadrante+cuadrante)/2, 0 -15)
+            goto(cuadrante+cuadrante+cuadrante/2, -15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
             c = 11
             jugador2 = False
@@ -223,7 +224,7 @@ def dibujarO(x,y):
             turno -= 1
         if y > cuadrante and y < 2*cuadrante and f == 0:
             penup()
-            goto ((cuadrante+cuadrante+cuadrante)/2, cuadrante - 15)
+            goto (cuadrante+cuadrante+cuadrante/2, cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
             f = 11
             jugador1 = False
@@ -231,7 +232,7 @@ def dibujarO(x,y):
             turno -= 1
         if y > 2*cuadrante and y < 3*cuadrante and i == 0:
             penup()
-            goto ((cuadrante+cuadrante+cuadrante)/2, (cuadrante + cuadrante) - 15)
+            goto (cuadrante+cuadrante+cuadrante/2, 2 * cuadrante - 15)
             write('O', align = 'center', font= ('Arial', fontsize, 'normal'))
             i = 11
             jugador2 = False
@@ -242,8 +243,7 @@ def ganador():
     """
     La funcion compara las casillas adyacentes y sus valores en todas las posibles formas de ganar para ambos jugadores
     """
-    global a, b, c, d, e, f, g, h, i, puntaje1, puntaje2
-    #comprobar valores para el jugador 1
+    global a, b, c, d, e, f, g, h, i, a1, b1, c1, d1, e1, f1, g1, h1, i1, puntaje1, puntaje2
     if e == 1:
         if a == 1 and i == 1:
             puntaje1 += 1
@@ -271,8 +271,6 @@ def ganador():
         elif f == 1 and i == 1:
             puntaje1 += 1
             turno = 0
-            
-    #Comprobar valores para el jugador 2
     if e == 11:
         if a == 11 and i == 11:
             puntaje2 += 1
