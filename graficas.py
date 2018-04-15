@@ -1,4 +1,5 @@
 from turtle import*
+fontsize= int(input("ingrese el tamano de la letra"))
 scala=1.2
 cuadrante=fontsize*scala
 def graf_tricky(cuadrante):
